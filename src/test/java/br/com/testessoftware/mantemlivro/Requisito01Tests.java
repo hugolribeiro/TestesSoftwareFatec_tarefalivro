@@ -1,10 +1,7 @@
 package br.com.testessoftware.mantemlivro;
 
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +12,7 @@ import java.util.Objects;
 
 
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Requisito01Tests {
 
     private WebDriver driver;
@@ -31,11 +29,13 @@ public class Requisito01Tests {
     }
 
     @Test
+    @Order(1)
     void contextLoads() {
     }
 
+
     @Test
-    @Order(1)
+    @Order(2)
     public void cadastralivro() {
         driver.findElement(By.name("username")).click();
         driver.findElement(By.name("username")).sendKeys("jose");
@@ -51,7 +51,7 @@ public class Requisito01Tests {
     }
 
     @Test
-    @Order(2)
+    @Order(3)
     public void alteralivro() {
         driver.findElement(By.name("username")).click();
         driver.findElement(By.name("username")).sendKeys("jose");
@@ -80,7 +80,7 @@ public class Requisito01Tests {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     public void excluirlivro() {
         driver.findElement(By.name("username")).click();
         driver.findElement(By.name("username")).sendKeys("jose");
